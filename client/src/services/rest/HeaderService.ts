@@ -1,7 +1,9 @@
 import * as lodash from "lodash";
+import { ILoggingService } from "../../../../base/src/models/interfaces/ILoggingService";
 
 export class HeaderService {
-    buildOptions(configurations: {[key: string]: string}, withCredentials = true): {[key: string]: string | boolean} {
+    constructor(private logger: ILoggingService) {}
+    buildOptions(configurations: {[key: string]: string}, credentials: {[key: string]: string}, withCredentials = true): {[key: string]: string | boolean} {
         return {
             withCredentials
         };

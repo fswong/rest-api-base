@@ -1,7 +1,9 @@
-import { IRestObject, IRestAction, IRestObjectType, IRestObjectParent } from "../models/rest/IRestObject";
-import { IConfiguration } from "../models/configurations/IConfiguration";
+import { IRestObject, IRestAction, IRestObjectType, IRestObjectParent } from "../../../../base/src/models/rest/IRestObject";
+import { IConfiguration } from "../../../../base/src/models/configurations/IConfiguration";
+import { ILoggingService } from "../../../../base/src/models/interfaces/ILoggingService";
 
 export class UrlService {
+    constructor(private logger: ILoggingService) {}
     constructUrl(configuration: IConfiguration, restObject: Partial<IRestObject>, action?: IRestAction): string {
         const id = restObject.id;
         const type = restObject.type;
@@ -27,7 +29,7 @@ export class UrlService {
             throw new Error("No type provided");
         }
         
-        return `${restObjectUrl}/${actionName}`;
+        return `${restObjectUrl}/action/${actionName}`;
     }
 
     constructListUrl(configuration: IConfiguration, type: IRestObjectType, parents?: IRestObjectParent[]): string {
@@ -36,5 +38,13 @@ export class UrlService {
         }, '') : '';
     
         return `${configuration.baseUrl}${parentsFragment}/${type}`;
+    }
+
+    constructMetaUrl(configuration: IConfiguration, type: IRestObjectType): string {
+        return `${configuration.baseUrl}/${type}/meta`;
+    }
+
+    constructSocketUrl(configuration: IConfiguration, restObject: IRestObject): string {
+        throw new Error("Method not implemented");
     }
 }

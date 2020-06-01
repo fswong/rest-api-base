@@ -5,19 +5,19 @@
 /base/tmp
 /base/out-tsc
 
-/frontend/dist
-/frontend/tmp
-/frontend/out-tsc
+/client/dist
+/client/tmp
+/client/out-tsc
 # Only exists if Bazel was run
-/frontend/bazel-out
+/client/bazel-out
 
 # dependencies
-/frontend/node_modules
-/backend/node_modules
+/client/node_modules
+/server/node_modules
 /base/node_modules
 
 # environments
-/backend/.env
+/server/.env
 
 # profiling files
 chrome-profiler-events*.json
