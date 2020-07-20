@@ -14,7 +14,7 @@
   "keywords": [],
   "prepublish": "tsc",
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.19"
   },
   "devDependencies": {
     "@types/jest": "^25.1.4",
